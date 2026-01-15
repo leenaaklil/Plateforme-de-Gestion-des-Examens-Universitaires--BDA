@@ -13,7 +13,7 @@
   
   **Optimisez automatiquement les emplois du temps d'examens pour 13,000+ étudiants**
   
-  [🚀 Voir la Démo en Ligne](https://youtu.be/nuAYw41ClV0) | [📖 Documentation](#) | [🐛 Signaler un Bug](https://github.com/votre-repo/planning-examens/issues)
+  [🚀 Voir la Démo en Ligne](https://youtu.be/nuAYw41ClV0) | [📖 Documentation](#) | [🐛 Signaler un Bug](https://github.com/leenaaklil/Plateforme-de-Gestion-des-Examens-Universitaires--BDA/issues)
   
 </div>
 
@@ -67,6 +67,7 @@ pip install -r requirements.txt
 # 4. Lancer l'application
 python -m streamlit run app.py
  
+
 
 
 
