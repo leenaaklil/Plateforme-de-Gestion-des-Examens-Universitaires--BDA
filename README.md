@@ -22,13 +22,6 @@
 ## 📋 Table des Matières
 - [✨ Fonctionnalités](#-fonctionnalités)
 - [🚀 Installation Rapide](#-installation-rapide)
-- [🎮 Utilisation](#-utilisation)
-- [🏗️ Architecture](#️-architecture)
-- [📊 Base de Données](#-base-de-données)
-- [⚙️ Configuration](#️-configuration)
-- [🚀 Déploiement](#-déploiement)
-- [🤝 Contribution](#-contribution)
-- [📄 Licence](#-licence)
 
 ## ✨ Fonctionnalités
 
@@ -74,6 +67,7 @@ pip install -r requirements.txt
 # 4. Lancer l'application
 python -m streamlit run app.py
  
+
 
 
 
