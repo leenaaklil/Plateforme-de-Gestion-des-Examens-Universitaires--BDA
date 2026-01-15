@@ -1,5 +1,3 @@
-
-
 # 📚 Plateforme d'Optimisation des Emplois du Temps d'Examens Universitaires
 
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
@@ -8,3 +6,73 @@
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
 ![Version](https://img.shields.io/badge/Version-2.0.0-orange)
+
+## 🌟 Aperçu du Projet
+
+<div align="center">
+  
+  **Optimisez automatiquement les emplois du temps d'examens pour 13,000+ étudiants**
+  
+  [🚀 Voir la Démo en Ligne](#) | [📖 Documentation](#) | [🐛 Signaler un Bug](https://github.com/votre-repo/planning-examens/issues)
+  
+</div>
+
+---
+
+## 📋 Table des Matières
+- [✨ Fonctionnalités](#-fonctionnalités)
+- [🚀 Installation Rapide](#-installation-rapide)
+- [🎮 Utilisation](#-utilisation)
+- [🏗️ Architecture](#️-architecture)
+- [📊 Base de Données](#-base-de-données)
+- [⚙️ Configuration](#️-configuration)
+- [🚀 Déploiement](#-déploiement)
+- [🤝 Contribution](#-contribution)
+- [📄 Licence](#-licence)
+
+## ✨ Fonctionnalités
+
+### 🎯 Génération & Optimisation
+| Fonctionnalité | Description | Statut |
+|---------------|-------------|--------|
+| ✅ **Génération automatique** | Crée des EDT optimisés en < 45 secondes | Production |
+| ✅ **Détection de conflits** | Identifie les conflits étudiants/professeurs | Production |
+| ✅ **Algorithmes d'optimisation** | Génétique + CSP pour une optimisation maximale | Production |
+| ✅ **Validation contraintes** | Vérifie toutes les contraintes académiques | Production |
+
+### 📊 Tableaux de Bord
+| Rôle | Fonctionnalités |
+|------|----------------|
+| 👨‍💼 **Administrateur** | Vue stratégique, KPIs, validation finale |
+| 📋 **Planificateur** | Génération EDT, optimisation, gestion ressources |
+| 🎓 **Étudiant** | Planning personnel, export, notifications |
+| 👨‍🏫 **Professeur** | Surveillances, disponibilités, statistiques |
+
+## 🚀 Installation Rapide
+
+### Prérequis
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-orange)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red)
+
+### Option 1 : Installation Complète (Recommandée)
+
+```bash
+# 1. Cloner le dépôt
+git clone https://github.com/votre-username/planning-examens.git
+cd planning-examens
+
+# 2. Installer les dépendances
+pip install -r requirements.txt
+
+# 3. Configurer la base de données (avec XAMPP)
+# - Démarrez XAMPP (Apache + MySQL)
+# - Ouvrez http://localhost/phpmyadmin
+# - Importez les fichiers SQL dans l'ordre :
+#   database/01_setup_database.sql
+#   database/02_create_tables.sql
+#   database/03_insert_data.sql
+#   database/04_stored_procedures.sql
+
+# 4. Lancer l'application
+streamlit run app/main.py
