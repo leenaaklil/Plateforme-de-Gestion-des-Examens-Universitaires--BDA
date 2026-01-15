@@ -2,10 +2,6 @@
 Application principale - Plateforme Gestion Examens
 """
 import streamlit as st
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).parent))
 from backend.db_connection import db
 
 st.set_page_config(
@@ -47,7 +43,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 def check_database_connection():
-    """Vérifier la connexion à la base de données"""
     try:
         conn = db.connect()
         if conn:
@@ -57,90 +52,51 @@ def check_database_connection():
         return False, f"Erreur: {str(e)}"
 
 def main():
-    """Fonction principale"""
-    
-    # En-tête
-    st.markdown('<div class="main-header"> Plateforme de Gestion des Examens Universitaires</div>', unsafe_allow_html=True)
-    
-    # Vérifier la connexion
+    st.markdown(
+        '<div class="main-header"> Plateforme de Gestion des Examens Universitaires</div>',
+        unsafe_allow_html=True
+    )
+
     is_connected, message = check_database_connection()
-    
+
     if not is_connected:
         st.error(f"❌ {message}")
-        st.info("Vérifiez que MySQL est démarré et que le fichier .env est correctement configuré.")
-        return
-    
+        st.info("Vérifiez les Secrets Streamlit (DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, DB_PORT).")
+        st.stop()
+
     st.success(f"✅ {message}")
-    
-    # Sidebar - Navigation
-    st.sidebar.title("🧭Navigation")
+
+    # Sidebar
+    st.sidebar.title("🧭 Navigation")
     st.sidebar.markdown("---")
-    
-    # Informations utilisateur
+
     user_role = st.sidebar.selectbox(
         "👤 Rôle utilisateur",
         ["Vice-Doyen/Doyen", "Administrateur Examens", "Chef de Département", "Étudiant", "Professeur"]
     )
-    
+
     st.sidebar.markdown("---")
-    
-    # Pages disponibles selon le rôle
+
     if user_role in ["Vice-Doyen/Doyen", "Administrateur Examens"]:
         st.sidebar.info("✅ Accès complet au système")
     elif user_role == "Chef de Département":
         st.sidebar.info("✅ Accès département")
     else:
         st.sidebar.info("ℹ️ Consultation uniquement")
-    
+
     st.sidebar.markdown("---")
     st.sidebar.markdown("### 📄 Pages disponibles")
-    st.sidebar.markdown("Utilisez le menu à gauche pour naviguer entre les différentes interfaces de la plateforme.")
-    
-    # Contenu principal
+    st.sidebar.markdown("Utilisez le menu à gauche pour naviguer entre les différentes interfaces.")
+
     st.markdown("### 👋 Bienvenue sur la plateforme")
-    
+
     st.markdown("""
     <div class="info-card">
         <h4>🎯 Objectif de la plateforme</h4>
-        <p>
-        Cette plateforme permet de générer automatiquement des emplois du temps d'examens optimisés 
-        pour une université de plus de 13 000 étudiants, en respectant toutes les contraintes :
-        </p>
-        <ul>
-            <li>✅ Maximum 1 examen par jour par étudiant</li>
-            <li>✅ Maximum 3 surveillances par jour par professeur</li>
-            <li>✅ Respect des capacités des salles et amphis</li>
-            <li>✅ Équilibrage des surveillances entre professeurs</li>
-            <li>✅ Priorisation des surveillances par département</li>
-        </ul>
+        <p>Génération automatique d'emplois du temps d'examens optimisés.</p>
     </div>
     """, unsafe_allow_html=True)
-    
-    st.markdown("---")
-    
-    # Fonctionnalités principales
-    st.markdown("### ⚡ Fonctionnalités principales")
-    
-    features = {
-        "🤖 Génération automatique": "Création d'emplois du temps optimisés en moins de 45 secondes",
-        "🔍 Détection de conflits": "Identification automatique de tous les types de conflits",
-        "📊 Tableaux de bord": "Visualisation en temps réel des KPIs et statistiques",
-        "👥 Multi-utilisateurs": "Interfaces adaptées selon les rôles (doyen, chef dept, étudiant...)",
-        "⚖️ Équilibrage": "Distribution équitable des surveillances entre professeurs",
-        "📈 Analytics": "Analyse approfondie des données et de l'utilisation des ressources"
-    }
-    
-    cols = st.columns(2)
-    for idx, (feature, description) in enumerate(features.items()):
-        with cols[idx % 2]:
-            st.markdown(f"""
-            <div class="info-card">
-                <strong>{feature}</strong><br>
-                <small>{description}</small>
-            </div>
-            """, unsafe_allow_html=True)
-    
-    # Footer
+
     st.markdown("""
     <div class="footer">
         <p>📚 Plateforme de Gestion des Examens Universitaires</p>
@@ -148,5 +104,4 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
-if __name__ == "__main__":
-    main()
+main()
