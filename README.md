@@ -68,11 +68,10 @@ pip install -r requirements.txt
 # 3. Configurer la base de données (avec XAMPP)
 # - Démarrez XAMPP (Apache + MySQL)
 # - Ouvrez http://localhost/phpmyadmin
-# - Importez les fichiers SQL dans l'ordre :
-#   database/01_setup_database.sql
-#   database/02_create_tables.sql
-#   database/03_insert_data.sql
-#   database/04_stored_procedures.sql
+# - Importez les fichiers SQL :
+#   database/edt_examens.sql
+#   
 
 # 4. Lancer l'application
-streamlit run app/main.py
+python -m streamlit run app.py
+
