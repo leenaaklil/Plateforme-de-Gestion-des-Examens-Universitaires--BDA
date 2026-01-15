@@ -48,7 +48,7 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-orange)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red)
 
-### Option 1 : Installation Complète (Recommandée)
+### Installation Complète
 
 ```bash
 # 1. Cloner le dépôt
@@ -67,6 +67,7 @@ pip install -r requirements.txt
 # 4. Lancer l'application
 python -m streamlit run app.py
  
+
 
 
 
