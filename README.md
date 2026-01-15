@@ -75,22 +75,6 @@ pip install -r requirements.txt
 python -m streamlit run app.py
  
 
-graph TB
-    A[Interface Streamlit] --> B[Services Backend]
-    B --> C[Base de Données MySQL]
-    
-    subgraph "Services Backend"
-        D[Générateur EDT]
-        E[Optimiseur]
-        F[Validateur]
-    end
-    
-    subgraph "Base de Données"
-        G[Tables Principales]
-        H[Procédures Stockées]
-        I[Vues Reporting]
-    end
-    
-    style A fill:#FF4B4B
-    style C fill:#4479A1
+
+
 
