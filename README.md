@@ -43,8 +43,8 @@
 
 ```bash
 # 1. Cloner le dépôt
-git clone https://github.com/leenaaklil/Plateforme-de-Gestion-des-Examens-Universitaires--BDA.git
-cd Plateforme-de-Gestion-des-Examens-Universitaires--BDA
+git clone https://github.com/leenaaklil/Plateforme-de-Gestion-des-Examens-Universitaires-BDA.git
+cd Plateforme-de-Gestion-des-Examens-Universitaires-BDA
 
 # 2. Installer les dépendances
 pip install -r requirements.txt
@@ -58,6 +58,7 @@ pip install -r requirements.txt
 # 4. Lancer l'application
 python -m streamlit run app.py
  
+
 
 
 
