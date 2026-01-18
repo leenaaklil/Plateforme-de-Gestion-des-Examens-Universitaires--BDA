@@ -31,13 +31,6 @@
 | ✅ **Algorithmes d'optimisation** | Génétique + CSP pour une optimisation maximale | Production |
 | ✅ **Validation contraintes** | Vérifie toutes les contraintes académiques | Production |
 
-### 📊 Tableaux de Bord
-| Rôle | Fonctionnalités |
-|------|----------------|
-| 👨‍💼 **Administrateur** | Vue stratégique, KPIs, validation finale |
-| 📋 **Planificateur** | Génération EDT, optimisation, gestion ressources |
-| 🎓 **Étudiant** | Planning personnel, export, notifications |
-| 👨‍🏫 **Professeur** | Surveillances, disponibilités, statistiques |
 
 ## 🚀 Installation Rapide
 
@@ -65,6 +58,7 @@ pip install -r requirements.txt
 # 4. Lancer l'application
 python -m streamlit run app.py
  
+
 
 
 
