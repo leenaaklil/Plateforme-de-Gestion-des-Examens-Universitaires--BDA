@@ -7,6 +7,8 @@
 <div>
   Si vous rencontrez un problème avec le lien de la plateforme, veuillez nous contacter à l'adresse aklillyna2003@gmail.com. En effet, notre période d'hébergement est limitée, vous pourriez donc rencontrer des difficultés.
 </div>
+
+
 ## 🌟 Aperçu du Projet
 
 <div align="center">
@@ -66,6 +68,7 @@ pip install -r requirements.txt
 # 4. Lancer l'application
 python -m streamlit run app.py
  
+
 
 
 
