@@ -4,7 +4,9 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
-
+<div>
+  Si vous rencontrez un problème avec le lien de la plateforme, veuillez nous contacter à l'adresse aklillyna2003@gmail.com. En effet, notre période d'hébergement est limitée, vous pourriez donc rencontrer des difficultés.
+</div>
 ## 🌟 Aperçu du Projet
 
 <div align="center">
@@ -50,14 +52,21 @@ cd Plateforme-de-Gestion-des-Examens-Universitaires-BDA
 pip install -r requirements.txt
 
 # 3. Configurer la base de données (avec XAMPP)
-# - Démarrez XAMPP (Apache + MySQL)
+# - Démarrez XAMPP/WAMP (Apache + MySQL)
 # - Ouvrez http://localhost/phpmyadmin
-# - Importez les fichiers SQL :
-#   database/edt_examens.sql  
+# - Créer une base de données : edt_examens
+# 1ère option :
+# - Importez le fichiers SQL :
+#   database/edt_examens.sql
+# 2ème option :
+# -  Importez le fichier SQL :
+#   database/schema.sql
+#   run fake_data_generator : python fake_data_generator.py                                                   
 
 # 4. Lancer l'application
 python -m streamlit run app.py
  
+
 
 
 
