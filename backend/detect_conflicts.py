@@ -1,6 +1,6 @@
 """
-Module de détection des conflits - VERSION 100% CORRIGÉE
-🔥 FIX CRITIQUE: Vérifier que l'étudiant appartient AU BON GROUPE
+Module de détection des conflits 
+
 """
 from backend.db_connection import db
 
@@ -27,7 +27,7 @@ class ConflictDetector:
     
     def detect_student_conflicts(self):
         """
-        🔥 100% CORRIGÉ: Détecter les VRAIS conflits étudiants
+      
         Un conflit = PLUS D'1 EXAMEN PAR JOUR
         
         CORRECTION CRITIQUE:
@@ -75,7 +75,7 @@ class ConflictDetector:
     
     def detect_same_time_conflicts(self):
         """
-        🆕 Détecter les conflits au MÊME CRÉNEAU HORAIRE (même heure)
+         Détecter les conflits au MÊME CRÉNEAU HORAIRE (même heure)
         CRITIQUE: ex.groupe_id = e.groupe_id
         
         Returns:
