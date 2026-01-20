@@ -1,8 +1,8 @@
 """
 Générateur de données réalistes pour la base EDT Examens
-200 formations EXACTEMENT, 13,000 étudiants, 6-9 modules par formation
+200 formations EXACTEMENT, 13,000 étudiants, 4-9 modules par formation
 Structure spéciale pour département INFO
-🔥 AVEC NOMINATION AUTOMATIQUE DE:
+ AVEC NOMINATION AUTOMATIQUE DE:
    - 7 CHEFS DE DÉPARTEMENT (1 PAR DÉPARTEMENT)
    - 1 VICE-DOYEN (parmi les professeurs)
 """
@@ -43,7 +43,7 @@ DEPARTEMENTS = [
     ('Lettres et Langues', 'LET')
 ]
 
-# 🔥 STRUCTURE SPÉCIALE POUR INFO - 8 FORMATIONS
+#  STRUCTURE SPÉCIALE POUR INFO - 8 FORMATIONS
 FORMATIONS_INFO = {
     'Licence 1': [('Licence 1 Informatique', None)],
     'Licence 2': [('Licence 2 Informatique', None)],
@@ -509,7 +509,7 @@ def nominate_chefs_departement(cursor, dept_ids, profs_by_dept):
     return chefs_nommes
 
 def nominate_vice_doyen(cursor, all_prof_ids):
-    """🔥 NOMMER 1 VICE-DOYEN parmi TOUS les professeurs"""
+    """ NOMMER 1 VICE-DOYEN parmi TOUS les professeurs"""
     print("\n🎓 Nomination du Vice-Doyen...")
     
     today = date.today()
@@ -726,7 +726,7 @@ def main():
         chefs_nommes = nominate_chefs_departement(cursor, dept_ids, profs_by_dept)
         conn.commit()
         
-        # 🔥 10. NOMINATION DU VICE-DOYEN
+        #  10. NOMINATION DU VICE-DOYEN
         vice_doyen_data = nominate_vice_doyen(cursor, all_prof_ids)
         conn.commit()
         
