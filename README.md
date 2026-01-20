@@ -28,12 +28,12 @@
 ## ✨ Fonctionnalités
 
 ### 🎯 Génération & Optimisation
-| Fonctionnalité | Description | Statut |
-|---------------|-------------|--------|
-| ✅ **Génération automatique** | Crée des EDT optimisés en < 45 secondes | Production |
-| ✅ **Détection de conflits** | Identifie les conflits étudiants/professeurs | Production |
-| ✅ **Algorithmes d'optimisation** | Génétique + CSP pour une optimisation maximale | Production |
-| ✅ **Validation contraintes** | Vérifie toutes les contraintes académiques | Production |
+| Fonctionnalité | Description | S
+|---------------|-------------|
+| ✅ **Génération automatique** | Crée des EDT optimisés en < 45 secondes | 
+| ✅ **Détection de conflits** | Identifie les conflits étudiants/professeurs | 
+| ✅ **Algorithmes d'optimisation** | Génétique + CSP pour une optimisation maximale | 
+| ✅ **Validation contraintes** | Vérifie toutes les contraintes académiques | 
 
 
 ## 🚀 Installation Rapide
@@ -68,6 +68,7 @@ pip install -r requirements.txt
 # 4. Lancer l'application
 python -m streamlit run app.py
  
+
 
 
 
