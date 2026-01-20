@@ -5,7 +5,7 @@
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
 <div>
-  Si vous rencontrez un problème avec le lien de la plateforme, veuillez nous contacter à l'adresse aklillyna2003@gmail.com. En effet, notre période d'hébergement est limitée, vous pourriez donc rencontrer des difficultés.
+  Si vous rencontrez un problème avec le lien de la plateforme, veuillez nous contacter à l'adresse aklillyna2003@gmail.com, semiermeriem@gmail.com ou benkemachesabrina@gmail.com . En effet, notre période d'hébergement est limitée, vous pourriez donc rencontrer des difficultés.
 </div>
 
 
@@ -68,6 +68,7 @@ pip install -r requirements.txt
 # 4. Lancer l'application
 python -m streamlit run app.py
  
+
 
 
 
