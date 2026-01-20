@@ -28,7 +28,7 @@
 ## ✨ Fonctionnalités
 
 ### 🎯 Génération & Optimisation
-| Fonctionnalité | Description | S
+| Fonctionnalité | Description |
 |---------------|-------------|
 | ✅ **Génération automatique** | Crée des EDT optimisés en < 45 secondes | 
 | ✅ **Détection de conflits** | Identifie les conflits étudiants/professeurs | 
@@ -68,6 +68,7 @@ pip install -r requirements.txt
 # 4. Lancer l'application
 python -m streamlit run app.py
  
+
 
 
 
