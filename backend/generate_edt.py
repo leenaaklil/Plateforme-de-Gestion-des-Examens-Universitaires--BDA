@@ -1,9 +1,9 @@
 """
-Module de génération automatique d'emploi du temps - VERSION FINALE CORRIGÉE
-🎯 GARANTIE: 0 CONFLIT ABSOLU - 1 SEUL EXAMEN PAR JOUR PAR ÉTUDIANT
-🎯 GARANTIE: 0 CONFLIT PROFESSEUR - 1 SEUL EXAMEN PAR CRÉNEAU HORAIRE
-🔥 CORRECTION CRITIQUE: Vérification du créneau horaire EXACT pour les profs
-📅 GÉNÉRATION PAR SEMESTRE avec vérification des examens existants
+Module de génération automatique d'emploi du temps 
+ GARANTIE: 0 CONFLIT ABSOLU - 1 SEUL EXAMEN PAR JOUR PAR ÉTUDIANT
+ GARANTIE: 0 CONFLIT PROFESSEUR - 1 SEUL EXAMEN PAR CRÉNEAU HORAIRE
+ CORRECTION CRITIQUE: Vérification du créneau horaire EXACT pour les profs
+ GÉNÉRATION PAR SEMESTRE avec vérification des examens existants
 """
 from backend.db_connection import db
 from datetime import datetime, timedelta
@@ -18,7 +18,7 @@ class ScheduleGenerator:
         self.profs_par_jour = defaultdict(list)
         self.salles_par_creneau = defaultdict(set)
         
-        # 🔥 NOUVEAU TRACKER CRITIQUE: profs par CRÉNEAU HORAIRE (jour + heure)
+        # TRACKER CRITIQUE: profs par CRÉNEAU HORAIRE (jour + heure)
         # Pour éviter qu'un prof surveille plusieurs examens au même moment
         self.profs_par_creneau = defaultdict(set)
         
@@ -58,7 +58,7 @@ class ScheduleGenerator:
     
     def load_existing_exams_for_students(self, semestre, annee_academique):
         """
-        🔥 NOUVEAU: Charger TOUS les examens déjà planifiés pour ce semestre
+         Charger TOUS les examens déjà planifiés pour ce semestre
         Pour éviter les conflits avec les examens existants
         """
         print(f"📋 Chargement des examens existants (Semestre {semestre})...")
@@ -91,7 +91,7 @@ class ScheduleGenerator:
     
     def load_existing_professor_surveillances(self, semestre, annee_academique):
         """
-        🔥 FONCTION CORRIGÉE: Charger les surveillances PAR CRÉNEAU HORAIRE
+        Charger les surveillances PAR CRÉNEAU HORAIRE
         Pour éviter qu'un prof surveille plusieurs examens au même moment
         """
         print(f"📋 Chargement des surveillances existantes...")
@@ -222,7 +222,7 @@ class ScheduleGenerator:
             )
         """
         
-        # 🔥 FILTRER PAR SEMESTRE
+        #  FILTRER PAR SEMESTRE
         if semestre:
             base_query += f" AND m.semestre = {semestre}"
         
@@ -260,7 +260,7 @@ class ScheduleGenerator:
     
     def trouver_creneau(self, dates, module_id, groupe_id, nb_etudiants, profs_dept, autres_profs):
         """
-        🎯 ALGORITHME CRITIQUE CORRIGÉ: Trouver un créneau valide
+        ALGORITHME CRITIQUE : Trouver un créneau valide
         RÈGLES ABSOLUES: 
         - Si UN SEUL étudiant a déjà un examen ce jour → SKIP
         - Si le prof est déjà occupé À CE CRÉNEAU HORAIRE EXACT → SKIP
@@ -354,14 +354,14 @@ class ScheduleGenerator:
         exam_temp_id = len(self.examens_batch)
         self.surveillances_batch.append((exam_temp_id, prof['id']))
         
-        # 🔥 MISE À JOUR CRITIQUE: Marquer CHAQUE étudiant comme occupé CE JOUR
+        #  CRITIQUE: Marquer CHAQUE étudiant comme occupé CE JOUR
         jour = date_obj.date()
         creneau = (jour, date_obj.hour)
         
         for etud_id in etudiants_ids:
             self.etudiants_par_jour[jour].add(etud_id)
         
-        # 🔥 NOUVEAU: Marquer le prof comme occupé À CE CRÉNEAU HORAIRE EXACT
+        #  Marquer le prof comme occupé À CE CRÉNEAU HORAIRE EXACT
         self.profs_par_creneau[creneau].add(prof['id'])
         
         # Garder aussi le tracker par jour
@@ -451,13 +451,13 @@ class ScheduleGenerator:
             # Reset
             self.profs_par_jour.clear()
             self.salles_par_creneau.clear()
-            self.profs_par_creneau.clear()  # 🔥 NOUVEAU
+            self.profs_par_creneau.clear()  
             self.etudiants_par_jour.clear()
             self.cache_etudiants.clear()
             self.examens_batch.clear()
             self.surveillances_batch.clear()
             
-            # 🔥 NOUVEAU: Charger les examens existants AVANT de planifier
+            #  Charger les examens existants AVANT de planifier
             self.load_existing_exams_for_students(semestre, annee_academique)
             self.load_existing_professor_surveillances(semestre, annee_academique)
             self.load_existing_room_usage(semestre, annee_academique)
@@ -488,14 +488,14 @@ class ScheduleGenerator:
                     }
                 }
             
-            # 🔥 Récupérer période d'examen
+            #  Récupérer période d'examen
             date_debut, date_fin = self.get_periode_examen(semestre, annee_academique)
             
             # Convertir en datetime
             start_date = datetime.combine(date_debut, datetime.min.time())
             end_date = datetime.combine(date_fin, datetime.min.time())
             
-            # 🔥 Générer créneaux (6 par jour, Lun-Sam)
+            #  Générer créneaux (6 par jour, Lun-Sam)
             dates = []
             current = start_date
             jours_count = 0
@@ -521,7 +521,7 @@ class ScheduleGenerator:
             for did in profs_by_dept:
                 autres_cache[did] = [p for p in self.professeurs if p['dept_id'] != did]
             
-            # 🔥 PLANIFICATION
+            #  PLANIFICATION
             print("🔄 Planification en cours...\n")
             planifies = 0
             echecs = []
@@ -550,7 +550,7 @@ class ScheduleGenerator:
             
             print(f"\n✅ Phase 1: {planifies}/{total} ({100*planifies/total:.1f}%)")
             
-            # 🔥 RETRY pour échecs
+            #  RETRY pour échecs
             if echecs:
                 print(f"\n🔄 Retry pour {len(echecs)} échecs...\n")
                 random.shuffle(dates)
@@ -638,7 +638,7 @@ class ScheduleGenerator:
     
     def clear_schedule(self, dept_id=None, semestre=None, annee_academique='2024-2025'):
         """
-        🔥 FONCTION CORRIGÉE: Effacer le planning d'un semestre
+         FONCTION : Effacer le planning d'un semestre
         """
         try:
             print(f"\n🗑️ Suppression des examens...")
@@ -669,7 +669,7 @@ class ScheduleGenerator:
             if where_conditions:
                 where_clause = " WHERE " + " AND ".join(where_conditions)
             
-            # 🔥 ÉTAPE 1: Récupérer les IDs des examens à supprimer
+            #  ÉTAPE 1: Récupérer les IDs des examens à supprimer
             exam_ids_query = f"SELECT id FROM examens{where_clause}"
             exam_ids_result = db.execute_query(exam_ids_query, tuple(params) if params else None)
             
@@ -677,14 +677,14 @@ class ScheduleGenerator:
                 exam_ids = [row['id'] for row in exam_ids_result]
                 print(f"   Trouvé: {len(exam_ids)} examens à supprimer")
                 
-                # 🔥 ÉTAPE 2: Supprimer les surveillances
+                #  ÉTAPE 2: Supprimer les surveillances
                 if exam_ids:
                     placeholders = ','.join(['%s'] * len(exam_ids))
                     surv_query = f"DELETE FROM surveillances WHERE examen_id IN ({placeholders})"
                     db.execute_query(surv_query, tuple(exam_ids))
                     print(f"   ✅ Surveillances supprimées")
                 
-                # 🔥 ÉTAPE 3: Supprimer les examens
+                #  ÉTAPE 3: Supprimer les examens
                 exam_delete_query = f"DELETE FROM examens{where_clause}"
                 db.execute_query(exam_delete_query, tuple(params) if params else None)
                 print(f"   ✅ Examens supprimés")
